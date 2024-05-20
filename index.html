@@ -5,18 +5,6 @@
         <title>Land for Rent along National Road No. 3.</title>
         
         <link rel="stylesheet" href="styles/main.css" media="screen, print">
-
-
-        <!-- <link rel="stylesheet" href="styles/reset.css">
-        <link rel="stylesheet" href="styles/print.css" media="print and { @page {size: A4 portrait;} }"> -->
-        <!-- @media print and (min-height:100vw) and (max-height: 120vw) { /* A4 styling */ .chrome.container::before { content: "A4"; } } -->
-        
-        <!-- <link rel="stylesheet" href="styles/pc.css" media="(min-width:1281px)">
-        <link rel="stylesheet" href="styles/tablet.css" media="(min-width:721px) and (max-width:1280px)">
-        <link rel="stylesheet" href="styles/smartphone.css" media="(max-width:720px)"> -->
-        <!-- <link rel="stylesheet" href="styles/smartphone-landscape.css" media="screen and (orientation: landscape) and (max-width: 810px)"> -->
-
-
         
         <!-- defer made the script run after the page load. -->
         <script defer src="scripts/script.js"></script>
@@ -160,7 +148,7 @@
                     <a class="LongLink" onclick="copyLinkButton()">Copy Link</a>
                     <script>
 						function copyLinkButton() {
-							var sURL = "example2.com/mhr/index.html";
+							var sURL = "https://roathkanel.github.io/mhrland.github.io/";
                             
                             if (navigator && navigator.clipboard && navigator.clipboard.writeText) {
                                 navigator.clipboard.writeText(sURL)
@@ -185,7 +173,7 @@
                             textArea.select();
                             document.execCommand("copy");
                             document.body.removeChild(textArea);
-                            alert(text + " (this website) has been copied to clipboard. Use the PASTE function to share this URL with other people.");
+                            alert("This website URL (" + text + ") has been copied to clipboard. Use the PASTE function to share this URL with other people.");
                         }
 					</script>
 
