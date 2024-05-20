@@ -1,0 +1,1937 @@
+/* Main CSS style. */
+
+/* ------------------------------------------- Reset the page to the default setting. --------------------------------------------------*/
+@media screen {
+    /* Reset browser setting to the default value. */
+    html, body, div, span, object, iframe, h1, h2,
+    h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym,
+    address, big, cite, code, del, dfn, em, img, ins, 
+    kbd, q, s, samp, small, strike, strong, sub, sup,
+    tt, var, b, u, u, center,dl, dt, dd, ol, ul, li,
+    fieldset, form, label, legend, table, caption, tbody,
+    tfoot, thead, tr, th, td, article, aside, canvas, 
+    details, embed, figure, figcaption, footer, header, 
+    hgroup, menu, nav, output, ruby, section, summary,
+    time, mark, audio, video {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 100%;
+        vertical-align: baseline;
+    }
+
+    article, aside, figcaption, figure, footer, header, 
+    hgroup, menu, nav, section {
+        display: block;
+    }
+
+    body {
+        line-height: 1.2;
+    }
+
+    ol {
+        padding-left: 1.4em;
+        list-style: decimal;
+    }
+
+    ul {
+        padding-left: 1.4em;
+        list-style: square;
+    }
+
+    table {
+        border-collapse: collapse;
+        border-spacing: 0;
+    }
+}
+
+/* ----------------------------------------------------- DONE WORKING -------------------------------------------------------------------
+Styling for:
+- Printing document.
+---------------------------------------------------------------------------------------------------------------------------------------*/
+@media print {
+    @page {
+        size: A4 portrait;
+        margin-top: 2cm;
+        margin-bottom: 2cm;
+        margin-left: 2cm;
+        margin-right: 2cm;
+
+    }
+    
+    /* Style of flex container for the header image. */
+    .BannerContainer {
+        /* 
+            Make the div display flex in order to arrange photo into the middle of 
+            the page.
+        */
+        display: block;
+        
+        
+        /* Set border of area image area. */
+        height: 400px;
+        overflow: visible; /* Hide the content of image under an image area. */
+
+        transform: translateX(-20%);
+        transform: translateY(-25%); /* Move the photo up 25% to make it looks good. */
+    }
+
+    .BannerContainer img {
+        box-shadow: 8px 8px 12px rgba(0,0,0,.7);
+    }
+
+    /* Flex container for Rent section. */
+    .RentContainer {
+        display: flex !important;
+        flex-direction: column !important;
+        flex-wrap: wrap !important;
+        margin-top: 50px;
+
+    }
+
+    /* All flexbox item within Rent container. */
+    .RentContainerAllFlexBox {
+        padding: 0;
+    }
+
+    /* Land for rent big banner background and text. */
+    .RentItem1 {
+        width: 100%;
+        height: auto;
+        
+    }
+
+    .RentItem1 h1 {
+        
+        padding: 5px;
+        padding-left: 0;
+        font-family: 'Consolas', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-size: 48pt !important;
+        color: black !important;
+        background-color: none !important;
+        text-align: center;
+        text-decoration: underline;
+        transform: translationX(-10%) !important;
+    }
+
+    /* Detail land specification. */
+    .RentItem2 {
+        width: 100%;
+        height: auto;
+
+        margin-left: 0;
+
+        background-color: none !important;
+        border: 5px solid rgba(5, 102, 26, 0.9);
+    }
+
+    .RentItem2 ul li {
+        list-style-type: disclosure-closed;
+        list-style-position: outside;
+    }
+
+    .LandSpec {
+        /* padding: 10px; */
+        font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-size: 20pt !important;
+        line-height: 150%;
+        color: black;
+    }
+
+    /* Don't add any content after email links */
+    a[href^="mailto:"]::after {
+        content: "";
+    }
+
+    /* Add the URL after the link.  */
+    a:after {
+        content: " (" attr(href) ") ";
+    }
+
+    /* Hide information of clicking image. */
+    .InformClickPhoto p {
+        display: none;
+    }
+
+    /* Flex container gallery setting. */
+    .GalleryContainer {
+        page-break-before: always;
+
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    
+        width: 70%;
+    
+        transform: translateX(10%);
+        padding-top: 50px;
+        padding-bottom: 50px;  
+    }
+
+    /* Setting to all text in all flexbox. */
+    .GalleryContainer p {
+        text-align: center;
+        font-size: 18pt;
+        font-family:Verdana, Geneva, Tahoma, sans-serif;
+        color: black;
+        background-color: none !important;
+        margin-bottom: 20px;
+        margin-top: 2px;
+        padding: 5px;
+    }
+    
+    /*​ Setting for specific image item. */
+    .ImgInFlex {
+        object-fit: cover;
+        width: 800px;
+        height: 600px;
+        
+        margin-top: 10px;
+        border: 5px solid #934337;
+        border-radius: 10px;
+    
+    }
+
+    /* Appearance of Contact flex container. */
+    .ContactContainer {
+        page-break-before: always;
+
+        display: flex;
+        flex-direction: column;
+        flex-wrap: no-wrap;
+
+        width: 100%;
+        border: 5px solid rgba(5, 102, 26, 0.9)
+    }
+    
+    /* Appearance of all contact flex items. */
+    .ContactAllFlexItem {
+        background-color: none !important;
+
+    }
+    
+    /* Appearance of each contact flex item. */
+    .ContactFlexItem1 {
+        width: auto;
+    }
+    
+    .ContactFlexItem1 p  {
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        font-size: 30pt;
+        color: black;
+        padding: 5px;
+        padding-left: 20px;
+        padding-bottom: 10px;
+    }
+    
+    .ContactFlexItem2 {
+        display: none;
+    }
+    
+    .ContactFlexItem3 {
+        width: 100%;
+    
+        padding-top: 0;
+        padding-bottom: 20px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 18pt;
+        line-height: 40px;
+        padding-left: 40px;
+    }
+    
+    /* Telegram and WhatsApp logo near the phone number. */
+    .ContactFlexItem3 img {
+        display: none;
+    }
+        
+    .ContactFlexItem4 {
+        display: none;
+    }
+        
+    .ContactFlexItem5 img, .ContactFlexItem6 img {
+        width: 240px;
+        height: auto;
+        border: 3px solid rgb(41,167,26);
+    }
+
+    .WrapTeleAndWhatApps {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .ContactFlexItem5, .ContactFlexItem6 {
+        width: 50%;
+        text-align: center;
+        padding-bottom: 50px;
+    }
+
+}
+
+/* ------------------------------------------------------- DONE WORKING ----------------------------------------------------------------
+Style sheet for website display on:
+- TV (landscape).
+- Large monitor (landscape). 
+- Laptop 15.6 inch (landscape).
+--------------------------------------------------------------------------------------------------------------------------------------*/
+@media only screen and (min-width: 1367px) {
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+    
+    /* Style of flex container for the header image. */
+    .BannerContainer {
+        /* 
+            Make the div display flex in order to arrange photo into the middle of 
+            the page.
+        */
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        
+        /* Set border of area image area. */
+        height: 500px;
+        width: 100%;
+        overflow: visible; /* Show or Hide the content of image under an image area. */
+        transform: translateY(-25%); /* Move the photo up 25% to make it looks good. */
+    }
+    
+    .BannerContainer img {
+        cursor: pointer;
+        box-shadow: 8px 8px 12px rgba(0,0,0,.7);
+    }
+    
+    /* Flex container for Rent section. */
+    .RentContainer {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    
+        margin-bottom: 20px;
+    }
+    
+    /* All flexbox item within Rent container. */
+    .RentContainerAllFlexBox {
+        margin-left: 5px;
+        margin-right: 5px;
+        padding: 0;
+    }
+    
+    /* Land for rent big banner background and text. */
+    .RentItem1 {
+        width: 300px;
+        height: auto;
+        margin-right: 0;
+    }
+    
+    .RentItem1 h1 {
+        margin: 5px;
+        padding: 5px;
+        font-family: 'Consolas', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-size: 3.8em;
+        color: white;
+        background-color: #934337;
+        text-align: center;
+        line-height: 130%;
+    }
+    
+    /* Detail land specification. */
+    .RentItem2 {
+        width: auto;
+        height: auto;
+    
+        font-size: 1.1em;
+        line-height: 150%;
+        color: black;
+        padding-left: 40px;
+        margin-left: 0;
+    
+        background-color: rgba(154, 255, 176, 0.5);
+    }
+    
+    .RentItem2 ul li {
+        list-style-image: url("../images/checkBox.gif");
+        
+    }
+    
+    .LandSpec {
+        padding: 10px;
+        font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-size: 1.1em;
+        line-height: 150%;
+        color: black;
+    }
+    
+    sup {
+    	/* https://www.w3schools.com/cssref/pr_font_font-size.php */
+    	font-size:x-small; 
+    	vertical-align:super;
+    }
+    
+    /* Style for banner of information, inform user to click on image. */
+    .InformClickPhoto p {
+        width: 65%;
+        transform: translateX(27%);
+        font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        text-align: center;
+        font-size: 1.2em;
+        color: black;
+        background-color: rgba(255,255,0, .2);
+        padding-bottom: 20px;
+        padding-top: 20px;
+        margin-bottom: 20px;
+        border: 5px solid rgba(179, 80, 0, 0.9);
+        border-radius: 10px;
+    }
+    
+    /* Appearance of image when mouse move over. */
+    .GalleryContainer img:hover {
+        border-color: rgba(179, 80, 0, 0.9);
+        box-shadow: 4px 4px 12px gray;
+    }
+    
+    /* Style of exclaimation image. */
+    .InformClickPhoto img {
+        width: 32px;
+        height: 32px;
+    }
+    
+    /* Setup animation to hide information of clicking to preview image. */
+    @keyframes InformUserToClickImage {
+        from {
+            opacity: 1;
+        }
+        to {
+            opacity: 0;
+        }
+    }
+    
+    .InformClickPhoto {
+        /*
+            Animation shorthand, use to fade out information box
+            and won't show on again.
+        */
+        animation: InformUserToClickImage 60s ease-in-out forwards;
+    }
+    
+    /* Flex container gallery setting. */
+    .GalleryContainer {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    
+        width: 70%;
+        transform: translateX(21.3%);
+        padding-top: 50px;
+        padding-bottom: 50px;
+        background-color: rgba(0, 0, 0, 0.2);
+
+    }
+    
+    /* Setting to all text in all flexbox. */
+    .GalleryContainer p {
+        text-align: center;
+        font-size: 1em;
+        font-family:Verdana, Geneva, Tahoma, sans-serif;
+        color: black;
+        background-color: white;
+        margin-bottom: 20px;
+        margin-top: 2px;
+        padding: 5px;
+    }
+    
+    /* Setting for specific image item. */
+    .ImgInFlex {
+        object-fit: cover;
+        width: 360px;
+        height: 240px;
+        cursor: pointer;
+    
+        border: 5px solid white;
+        border-radius: 10px;
+    } 
+    
+    .footer p {
+        background-color: orange;
+        width: auto;
+        height: 50px;
+    }
+    
+    /* Appearance of the background outside image after we click on image. */
+    #lightbox {
+        position: fixed;
+        z-index: 1000;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0, .8);
+        /* Hide this box until the user click on an image. */
+        display: none;
+    }
+    
+    /* Show lightbox and its arranged location when user click on any image. */
+    #lightbox.active {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    /*
+        Appearance of an image when when show in lightbox after user click on 
+        any image.
+    */
+    #lightbox img {
+        max-width: 90%;
+        max-height: 80%;
+        padding: 4px;
+        background-color: black;
+        border: 2px solid white;
+    }
+    
+    /* Appearance of Contact flex container. */
+    .ContactContainer {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content:flex-start;
+        /* align-items: top; */
+    
+        width: 70%;
+        transform: translateX(21%);
+    }
+    
+    /* Appearance of all contact flex items. */
+    .ContactAllFlexItem {
+        background-color: rgba(154, 255, 176, 0.5);
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+    
+    /* Contact information, flexbox item. */
+    .ContactFlexItem1 {
+        width: 60%;
+    }
+    
+    .ContactFlexItem1 p {
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        font-size: 2em;
+        color: rgb(41,167,26);
+        padding: 5px;
+        padding-left: 90px;
+        padding-bottom: 10px;
+    }
+
+    .ContactFlexItem2 p  {
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        font-size: 2em;
+        color: rgb(41,167,26);
+        padding: 5px;
+        padding-left: 20px;
+        padding-bottom: 10px;
+    }
+    
+    /* Share, flexbox item. */
+    .ContactFlexItem2 {
+        /* width: 40%; */
+        flex: 1 1 auto;
+        min-width: 0;
+    }
+    
+    .ContactFlexItem3 {
+        width: 40%;            
+        padding-top: 0;
+        padding-bottom: 20px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 1.2em;
+        line-height: 40px;
+        padding-left: 120px;
+    }
+    
+    /* Telegram and WhatsApp logo near the phone number. */
+    .ContactFlexItem3 img {
+        width: 23px;
+        height: 23px;
+    }
+    
+    .ContactFlexItem3 img:hover {
+        cursor: pointer;
+    }
+    
+    /* Print and copy button flexbox. */
+    .ContactFlexItem4 {
+        padding-left: 130px;
+        flex: 1 1 auto;
+        min-width: 0;
+    }
+    
+    .ContactFlexItem4 a {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        color: white;
+        background-color: orange;
+        
+        padding-top: 10px;
+        padding-bottom: 10px;
+        border-radius: 30px;
+    
+    }
+    
+    .ContactFlexItem4 a:hover {
+        color: black;
+        background-color: rgba(255,165,0,.6);
+        cursor: pointer;
+        border-color: orange;
+    
+    }
+    
+    /* Telegram and WhatsApp QR code. */
+    .ContactFlexItem5, .ContactFlexItem6 {
+        padding-top: 0;
+    }
+
+    .ContactFlexItem5 {
+        padding-right: 10px;
+    }
+
+    .ContactFlexItem6{
+        padding-left: 10px;
+    }
+
+    .ContactFlexItem5 img, .ContactFlexItem6 img {
+        width: 80px;
+        height: auto;
+        border: 3px solid rgb(41,167,26);
+        cursor: pointer;
+    }
+    
+    .ContactFlexItem5 img:hover, .ContactFlexItem6 img:hover {
+        box-shadow: 5px 5px 8px gray;
+    }
+    
+    .WrapTeleAndWhatApps {
+        display: flex;
+        flex-direction: row;
+
+    }
+
+    /* Print button. */
+    .ShortLink {
+        padding-left: 60px;
+        padding-right: 60px;
+    }
+    
+    /* Copy Link button. */
+    .LongLink {
+        padding-left: 48px;
+        padding-right: 48px;
+    }
+    
+    .blankArea {
+        height: 60px;
+        width: 30px;
+        background-color: white;
+    }
+    
+}
+
+/* -------------------------------------------------- DONE WORKING -------------------------------------------------------------------- 
+CSS rules for:
+- Laptop 14 inch (landscape).
+--------------------------------------------------------------------------------------------------------------------------------------*/
+@media only screen and (min-width: 1025px) and (max-width: 1366px) {
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+    
+    /* Style of flex container for the header image. */
+    .BannerContainer {
+        /* 
+            Make the div display flex in order to arrange photo into the middle of 
+            the page.
+        */
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        
+        /* Set border of area image area. */
+        height: 400px;
+        width: 100%;
+        overflow: visible; /* Show or Hide the content of image under an image area. */
+        transform: translateY(-25%); /* Move the photo up 25% to make it looks good. */
+    }
+    
+    .BannerContainer img {
+        cursor: pointer;
+        box-shadow: 8px 8px 12px rgba(0,0,0,.7);
+    }
+    
+    /* Flex container for Rent section. */
+    .RentContainer {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    
+        margin-bottom: 20px;
+    }
+    
+    /* All flexbox item within Rent container. */
+    .RentContainerAllFlexBox {
+        margin-left: 5px;
+        margin-right: 5px;
+        padding: 0;
+    }
+    
+    /* Land for rent big banner background and text. */
+    .RentItem1 {
+        width: 300px;
+        height: auto;
+        margin-right: 0;
+    }
+    
+    .RentItem1 h1 {
+        margin: 5px;
+        padding: 5px;
+        font-family: 'Consolas', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-size: 3.8em;
+        color: white;
+        background-color: #934337;
+        text-align: center;
+        line-height: 130%;
+    }
+    
+    /* Detail land specification. */
+    .RentItem2 {
+        width: auto;
+        height: auto;
+    
+        font-size: 1.1em;
+        line-height: 150%;
+        color: black;
+        padding-left: 40px;
+        margin-left: 0;
+    
+        background-color: rgba(154, 255, 176, 0.5);
+    }
+    
+    .RentItem2 ul li {
+        list-style-image: url("../images/checkBox.gif");
+        
+    }
+    
+    .LandSpec {
+        padding: 10px;
+        font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-size: 1.1em;
+        line-height: 150%;
+        color: black;
+    }    
+    
+    sup {
+    	/* https://www.w3schools.com/cssref/pr_font_font-size.php */
+    	font-size:x-small; 
+    	vertical-align:super;
+    }
+    
+    /* Style for banner of information, inform user to click on image. */
+    .InformClickPhoto p {
+        width: 80%;
+        transform: translateX(13%);
+        font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        text-align: center;
+        font-size: 1.2em;
+        color: black;
+        background-color: rgba(255,255,0, .2);
+        padding-bottom: 20px;
+        padding-top: 20px;
+        margin-bottom: 20px;
+        border: 5px solid rgba(179, 80, 0, 0.9);
+        border-radius: 10px;
+    }
+    
+    /* Appearance of image when mouse move over. */
+    .GalleryContainer img:hover {
+        border-color: rgba(179, 80, 0, 0.9);
+        box-shadow: 4px 4px 12px gray;
+    }
+    
+    /* Style of exclaimation image. */
+    .InformClickPhoto img {
+        width: 32px;
+        height: 32px;
+    }
+    
+    /* Setup animation to hide information of clicking to preview image. */
+    @keyframes InformUserToClickImage {
+        from {
+            opacity: 1;
+        }
+        to {
+            opacity: 0;
+        }
+    }
+    
+    .InformClickPhoto {
+        /*
+            Animation shorthand, use to fade out information box
+            and won't show on again.
+        */
+        animation: InformUserToClickImage 60s ease-in-out forwards;
+    }
+    
+    /* Flex container gallery setting. */
+    .GalleryContainer {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    
+        width: 70%;
+        transform: translateX(22%);
+        padding-top: 50px;
+        padding-bottom: 50px;
+        background-color: rgba(0, 0, 0, 0.2);
+        
+    }
+    
+    /* Setting to all text in all flexbox. */
+    .GalleryContainer p {
+        text-align: center;
+        font-size: 1em;
+        font-family:Verdana, Geneva, Tahoma, sans-serif;
+        color: black;
+        background-color: white;
+        margin-bottom: 20px;
+        margin-top: 2px;
+        padding: 5px;
+    }
+    
+    /* Setting for specific image item. */
+    .ImgInFlex {
+        object-fit: cover;
+        width: 360px;
+        height: 240px;
+        cursor: pointer;
+    
+        border: 5px solid white;
+        border-radius: 10px;
+    }     
+    
+    .footer p {
+        background-color: orange;
+        width: auto;
+        height: 50px;
+    }
+    
+    /* Appearance of the background outside image after we click on image. */
+    #lightbox {
+        position: fixed;
+        z-index: 1000;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0, .8);
+        /* Hide this box until the user click on an image. */
+        display: none;
+    }
+    
+    /* Show lightbox and its arranged location when user click on any image. */
+    #lightbox.active {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    /*
+        Appearance of an image when when show in lightbox after user click on 
+        any image.
+    */
+    #lightbox img {
+        max-width: 90%;
+        max-height: 80%;
+        padding: 4px;
+        background-color: black;
+        border: 2px solid white;
+    }
+    
+    /* Appearance of Contact flex container. */
+    .ContactContainer {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content:flex-start;
+        /* align-items: top; */
+    
+        width: 70%;
+        transform: translateX(22%);
+    }
+    
+    /* Appearance of all contact flex items. */
+    .ContactAllFlexItem {
+        background-color: rgba(154, 255, 176, 0.5);
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+    
+    /* Contact information, flexbox item. */
+    .ContactFlexItem1 {
+        width: 60%;
+    }
+    
+    .ContactFlexItem1 p {
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        font-size: 2em;
+        color: rgb(41,167,26);
+        padding: 5px;
+        padding-left: 40px;
+        padding-bottom: 10px;
+    }
+
+    .ContactFlexItem2 p  {
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        font-size: 2em;
+        color: rgb(41,167,26);
+        padding: 5px;
+        padding-left: 20px;
+        padding-bottom: 10px;
+    }
+    
+    /* Share, flexbox item. */
+    .ContactFlexItem2 {
+        /* width: 40%; */
+        flex: 1 1 auto;
+        min-width: 0;
+    }
+    
+    .ContactFlexItem3 {
+        width: 40%;            
+        padding-top: 0;
+        padding-bottom: 20px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 1.2em;
+        line-height: 40px;
+        padding-left: 60px;
+    }
+    
+    /* Telegram and WhatsApp logo near the phone number. */
+    .ContactFlexItem3 img {
+        width: 23px;
+        height: 23px;
+    }
+    
+    .ContactFlexItem3 img:hover {
+        cursor: pointer;
+    }
+    
+    /* Print and copy button flexbox. */
+    .ContactFlexItem4 {
+        padding-left: 80px;
+        flex: 1 1 auto;
+        min-width: 0;
+    }
+    
+    /* Appearance of Print and Copy button. */
+    .ContactFlexItem4 a {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        color: white;
+        background-color: orange;
+        
+        padding-top: 10px;
+        padding-bottom: 10px;
+        border-radius: 30px;
+    
+    }
+    
+    .ContactFlexItem4 a:hover {
+        color: black;
+        background-color: rgba(255,165,0,.6);
+        cursor: pointer;
+        border-color: orange;
+    
+    }
+    
+    /* Telegram and WhatsApp QR code. */
+    .ContactFlexItem5, .ContactFlexItem6 {
+        padding-top: 0;
+    }
+
+    .ContactFlexItem5 {
+        padding-right: 10px;
+    }
+
+    .ContactFlexItem6{
+        padding-left: 10px;
+    }
+
+    .ContactFlexItem5 img, .ContactFlexItem6 img {
+        width: 80px;
+        height: auto;
+        border: 3px solid rgb(41,167,26);
+        cursor: pointer;
+    }
+    
+    .ContactFlexItem5 img:hover, .ContactFlexItem6 img:hover {
+        box-shadow: 5px 5px 8px gray;
+    }
+    
+    .WrapTeleAndWhatApps {
+        display: flex;
+        flex-direction: row;
+
+    }
+
+    /* Print button. */
+    .ShortLink {
+        padding-left: 32.5px;
+        padding-right: 32.5px;
+    }
+    
+    /* Copy link button. */
+    .LongLink {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    
+    .blankArea {
+        height: 60px;
+        width: 30px;
+        background-color: white;
+    }
+
+}
+
+/* --------------------------------------------------- DONE WORKING -------------------------------------------------------------------- 
+CSS rules for:
+- Small monitor 14 inch (4:3 ratio).
+--------------------------------------------------------------------------------------------------------------------------------------*/
+@media only screen and (min-width: 992px) and (max-width: 1024px) {
+
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+    
+    /* Style of flex container for the header image. */
+    .BannerContainer {
+        /* 
+            Make the div display flex in order to arrange photo into the middle of 
+            the page.
+        */
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        
+        /* Set border of area image area. */
+        height: 400px;
+        width: 100%;
+        overflow: visible; /* Show or Hide the content of image under an image area. */
+        transform: translateY(-25%); /* Move the photo up 25% to make it looks good. */
+    }
+    
+    .BannerContainer img {
+        cursor: pointer;
+        box-shadow: 8px 8px 12px rgba(0,0,0,.7);
+    }
+
+    /* Flex container for Rent section. */
+    .RentContainer {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    
+        margin-bottom: 20px;
+    }
+    
+    /* All flexbox item within Rent container. */
+    .RentContainerAllFlexBox {
+        margin-left: 5px;
+        margin-right: 5px;
+        padding: 0;
+    }
+    
+    /* Land for rent big banner background and text. */
+    .RentItem1 {
+        width: 20%;
+        height: auto;
+        margin-right: 0;
+    }
+    
+    .RentItem1 h1 {
+        margin: 5px;
+        padding: 5px;
+        font-family: 'Consolas', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-size: 3em;
+        color: white;
+        background-color: #934337;
+        text-align: center;
+        line-height: 130%;
+    }
+    
+    /* Detail land specification. */
+    .RentItem2 {
+        width: 79%;
+        height: auto;
+    
+        font-size: 0.9em;
+        line-height: 150%;
+        color: black;
+        padding-left: 40px;
+        margin-left: 0;
+    
+        background-color: rgba(154, 255, 176, 0.5);
+    }
+    
+    .RentItem2 ul li {
+        list-style-image: url("../images/checkBox.gif");
+        
+    }
+    
+    .LandSpec {
+        padding: 10px;
+        font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-size: 1.1em;
+        line-height: 150%;
+        color: black;
+    }
+    
+    sup {
+    	/* https://www.w3schools.com/cssref/pr_font_font-size.php */
+    	font-size:x-small; 
+    	vertical-align:super;
+    }
+
+    /* Style for banner of information, inform user to click on image. */
+    .InformClickPhoto p {
+        width: 80%;
+        transform: translateX(13%);
+        font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        text-align: center;
+        font-size: 1em;
+        color: black;
+        background-color: rgba(255,255,0, .2);
+        padding-bottom: 20px;
+        padding-top: 20px;
+        margin-bottom: 20px;
+        border: 5px solid rgba(179, 80, 0, 0.9);
+        border-radius: 10px;
+    }
+
+    /* Appearance of image when mouse move over. */
+    .GalleryContainer img:hover {
+        border-color: rgba(179, 80, 0, 0.9);
+        box-shadow: 4px 4px 12px gray;
+    }
+    
+    /* Style of exclaimation image. */
+    .InformClickPhoto img {
+        width: 32px;
+        height: 32px;
+    }
+    
+    /* Setup animation to hide information of clicking to preview image. */
+    @keyframes InformUserToClickImage {
+        from {
+            opacity: 1;
+        }
+        to {
+            opacity: 0;
+        }
+    }
+    
+    .InformClickPhoto {
+        /*
+            Animation shorthand, use to fade out information box
+            and won't show on again.
+        */
+        animation: InformUserToClickImage 60s ease-in-out forwards;
+    }
+
+    /* Flex container gallery setting. */
+    .GalleryContainer {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+
+        width: 90%;
+        transform: translateX(5.5%);
+        padding-top: 50px;
+        padding-bottom: 50px;
+        background-color: rgba(0, 0, 0, 0.2);
+
+    }
+
+    /* Setting to all text in all flexbox. */
+    .GalleryContainer p {
+        text-align: center;
+        font-size: 1em;
+        font-family:Verdana, Geneva, Tahoma, sans-serif;
+        color: black;
+        background-color: white;
+        margin-bottom: 20px;
+        margin-top: 2px;
+        padding: 5px;
+    }
+
+    /* Setting for specific image item. */
+    .ImgInFlex {
+        object-fit: cover;
+        width: 360px;
+        height: auto;
+        cursor: pointer;
+
+        border: 5px solid white;
+        border-radius: 10px;
+    } 
+
+    .footer p {
+        background-color: orange;
+        width: auto;
+        height: 50px;
+    }
+    
+    /* Appearance of the background outside image after we click on image. */
+    #lightbox {
+        position: fixed;
+        z-index: 1000;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0, .8);
+        /* Hide this box until the user click on an image. */
+        display: none;
+    }
+    
+    /* Show lightbox and its arranged location when user click on any image. */
+    #lightbox.active {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    /*
+        Appearance of an image when when show in lightbox after user click on 
+        any image.
+    */
+    #lightbox img {
+        max-width: 90%;
+        max-height: 80%;
+        padding: 4px;
+        background-color: black;
+        border: 2px solid white;
+    }
+    
+    /* Appearance of Contact flex container. */
+    .ContactContainer {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content:flex-start;
+        /* align-items: top; */
+    
+        width: 90%;
+        transform: translateX(5.5%);
+    }
+    
+    /* Appearance of all contact flex items. */
+    .ContactAllFlexItem {
+        background-color: rgba(154, 255, 176, 0.5);
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+    
+    /* Contact information, flexbox item. */
+    .ContactFlexItem1 {
+        width: 60%;
+    }
+    
+    .ContactFlexItem1 p {
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        font-size: 2em;
+        color: rgb(41,167,26);
+        padding: 5px;
+        padding-left: 70px;
+        padding-bottom: 10px;
+    }
+
+    .ContactFlexItem2 p  {
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        font-size: 2em;
+        color: rgb(41,167,26);
+        padding: 5px;
+        padding-left: 20px;
+        padding-bottom: 10px;
+    }
+    
+    /* Share, flexbox item. */
+    .ContactFlexItem2 {
+        flex: 1 1 auto;
+        min-width: 0;
+    }
+    
+    .ContactFlexItem3 {
+        width: 40%;            
+        padding-top: 0;
+        padding-bottom: 20px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 1em;
+        line-height: 40px;
+        padding-left: 100px;
+    }
+    
+    /* Telegram and WhatsApp logo near the phone number. */
+    .ContactFlexItem3 img {
+        width: 23px;
+        height: 23px;
+    }
+    
+    .ContactFlexItem3 img:hover {
+        cursor: pointer;
+    }
+    
+    /* Print and copy button flexbox. */
+    .ContactFlexItem4 {
+        padding-left: 80px;
+        flex: 1 1 auto;
+        min-width: 0;
+    }
+    
+    .ContactFlexItem4 a {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        color: white;
+        background-color: orange;
+        
+        padding-top: 10px;
+        padding-bottom: 10px;
+        border-radius: 30px;
+    
+    }
+    
+    .ContactFlexItem4 a:hover {
+        color: black;
+        background-color: rgba(255,165,0,.6);
+        cursor: pointer;
+        border-color: orange;
+    
+    }
+    
+    /* Telegram and WhatsApp QR code. */
+    .ContactFlexItem5, .ContactFlexItem6 {
+        padding-top: 0;
+    }
+
+    .ContactFlexItem5 {
+        padding-right: 10px;
+    }
+
+    .ContactFlexItem6{
+        padding-left: 10px;
+    }
+
+    .ContactFlexItem5 img, .ContactFlexItem6 img {
+        width: 80px;
+        height: auto;
+        border: 3px solid rgb(41,167,26);
+        cursor: pointer;
+    }
+    
+    .ContactFlexItem5 img:hover, .ContactFlexItem6 img:hover {
+        box-shadow: 5px 5px 8px gray;
+    }
+    
+    .WrapTeleAndWhatApps {
+        display: flex;
+        flex-direction: row;
+
+    }
+
+    /* Print button. */
+    .ShortLink {
+        padding-left: 60px;
+        padding-right: 60px;
+    }
+    
+    /* Copy Link button. */
+    .LongLink {
+        padding-left: 48px;
+        padding-right: 48px;
+    }
+    
+    .blankArea {
+        height: 60px;
+        width: 30px;
+        background-color: white;
+    }
+
+}
+
+/* ---------------------------------------------------- DONE WORKING ------------------------------------------------------------------
+CSS rules for:
+- Tablet (portrait and landscape), Web Browser: Google Chrome.
+--------------------------------------------------------------------------------------------------------------------------------------*/
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    /* Style of flex container for the header image.n */
+    .BannerContainer {
+        /* 
+            Make the div display flex in order to arrange photo into the middle of 
+            the page.
+        */
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        
+        /*
+            Set border of area image area.
+        */
+        height: 500px;
+        width: 73%;
+        overflow: visible; /* Hide the content of image under an image area. */
+        margin-bottom: 0;
+        padding-bottom: 0;
+        transform: translateY(-25%); /* Move the photo up 25% to make it looks good. */
+        
+    }
+
+    .BannerContainer img {
+        box-shadow: 8px 8px 12px rgba(0,0,0,.7);
+    }
+
+
+    .RentContainer {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+
+        margin-top: 0;
+        padding-top: 0;
+        margin-bottom: 20px;
+        transform: translateX(10%);
+    }
+
+    /*
+        All flexbox item within Rent container.
+    */
+    .RentContainerAllFlexBox {
+        margin-left: 5px;
+        margin-right: 5px;
+        padding: 0;
+    }
+
+    /*
+        Land for rent big banner background and text.
+    */
+    .RentItem1 {
+        width: 30%;
+        height: auto;
+        /* margin-right: 0; */
+    }
+
+    .RentItem1 h1 {
+        margin: 5px;
+        padding: 5px;
+        padding-bottom: 30px;
+        font-family: 'Consolas', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-size: 3.5em;
+        color: white;
+        background-color: #934337;
+        text-align: center;
+        line-height: 180%;
+    }
+
+    /*
+        Detail land specification.
+    */
+    .RentItem2 {
+        align-self: center;
+        width: 70%;
+        /* height: auto; */
+        font-size: 1.1em;
+        line-height: 150%;
+        color: black;
+        padding-left: 40px;
+        margin-left: 0;
+        background-color: rgba(154, 255, 176, 0.5);
+        
+    }
+
+    .RentItem2 ul li {
+        list-style-image: url("../images/checkBox.gif");
+    }
+
+    .LandSpec {
+        padding: 10px;
+        font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-size: 1.1em;
+        line-height: 150%;
+        color: black;
+    }
+
+    /*
+        Style for banner of information, inform user to click on image.
+    */
+    .InformClickPhoto p {
+        width: 100%;
+        transform: translateX(9.5%);
+        font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        text-align: center;
+        font-size: 1.2em;
+        color: black;
+        background-color: rgba(255,255,0, .2);
+        padding-bottom: 20px;
+        padding-top: 20px;
+        margin-bottom: 20px;
+        border: 5px solid rgba(179, 80, 0, 0.9);
+        border-radius: 10px;
+    }
+
+    /*
+        Appearance of image when mouse move over.
+    */
+    .GalleryContainer img:hover {
+        border-color: rgba(179, 80, 0, 0.9);
+        box-shadow: 4px 4px 12px gray;
+    }
+
+    /*
+        Style of exclaimation image.
+    */
+    .InformClickPhoto img {
+        width: 32px;
+        height: 32px;
+    }
+
+    /*
+        Setup animation to hide information of clicking to preview image.
+    */
+    @keyframes InformUserToClickImage {
+        from {
+            opacity: 1;
+        }
+        to {
+            opacity: 0;
+        }
+    }
+
+    .InformClickPhoto {
+        /*
+            Animation shorthand, use to fade out information box
+            and won't show on again.
+        */
+        animation: InformUserToClickImage 60s ease-in-out forwards;
+    }
+
+    /*
+        Flex container gallery setting.
+    */
+    .GalleryContainer {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+
+        width: 100%;
+
+        transform: translateX(9.5%);
+        padding-top: 25px;
+        padding-bottom: 10px;
+        background-color: rgba(0, 0, 0, 0.2);
+        
+    }
+
+    /*
+        Setting to all text in all flexbox.
+    */
+    .GalleryContainer p {
+        text-align: center;
+        font-size: 1.1em;
+        font-family:Verdana, Geneva, Tahoma, sans-serif;
+        color: black;
+        background-color: white;
+        margin-bottom: 20px;
+        margin-top: 2px;
+        padding: 5px;
+    }
+
+    /*
+        Setting for specific image item.
+    */
+    .ImgInFlex {
+        object-fit: cover;
+        width: 720px;
+        height: 480px;
+        cursor: pointer;
+
+        border: 5px solid white;
+        border-radius: 10px;
+
+    } 
+
+    .footer p {
+        background-color: orange;
+        width: auto;
+        height: 50px;
+    }
+
+    /*
+        Appearance of the background outside image after we click on image.
+    */
+    #lightbox {
+        position: fixed;
+        z-index: 1000;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0, .8);
+        /* Hide this box until the user click on an image. */
+        display: none;
+    }
+
+    /*
+        Show lightbox and its arranged location when user click on any image.
+    */
+    #lightbox.active {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    /*
+        Appearance of an image when when show in lightbox after user click on 
+        any image.
+    */
+    #lightbox img {
+        max-width: 90%;
+        max-height: 80%;
+        padding: 4px;
+        background-color: black;
+        border: 2px solid white;
+    }
+
+    /*
+        Appearance of Contact flex container.
+    */
+    .ContactContainer {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: left;
+        
+
+        transform: translateX(9.5%);
+    }
+
+    /*
+        Appearance of all contact flex items.
+    */
+    .ContactAllFlexItem {
+        background-color: rgba(154, 255, 176, 0.5);
+        padding-top: 10px;
+    }
+
+    /* Appearance of flex item1. */
+    .ContactFlexItem1 {
+        width: 100%;
+    }
+
+    .ContactFlexItem1 p  {
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        font-size: 2em;
+        color: rgb(41,167,26);
+        padding-left: 20px;
+        padding-bottom: 10px;
+
+    }
+
+    .ContactFlexItem2 {
+        display: none;
+    }
+
+    .ContactFlexItem3 {
+        width: 70%;
+    }
+
+    /* Contact detail infomration. */
+    .ContactFlexItem3 p {
+        padding-top: 0;
+        padding-bottom: 20px;
+        padding-left: 40px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 1.2em;
+        line-height: 40px;
+        margin-left: 7px;
+        
+    }
+
+    /* Telegram and WhatsApp logo size near the phone number. */
+    .ContactFlexItem3 img {
+        width: 23px;
+        height: 23px;
+    }
+
+    .ContactFlexItem4 {
+        /* width: auto; */
+        display: none;
+    }
+
+    .ContactFlexItem4 a {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        color: white;
+        background-color: orange;
+        
+        padding-top: 10px;
+        padding-bottom: 10px;
+        border-radius: 30px;
+
+    }
+
+    .ContactFlexItem4 a:hover {
+        color: black;
+        background-color: rgba(255,165,0,.6);
+        cursor: pointer;
+        border-color: orange;
+
+    }
+
+    /* Print button. */
+    .ShortLink {
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+
+    /* Copy link button. */
+    .LongLink {
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+
+    .WrapTeleAndWhatApps {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    /* Telegram and WhatsApp QR Code. */
+    .ContactFlexItem5 img, .ContactFlexItem6 img {
+        width: 90px;
+        height: auto;
+        border: 3px solid rgb(41,167,26);
+        /* cursor: pointer; */
+    }
+
+    /* Telegram and WhatsApp QR Code. */
+    .ContactFlexItem5, .ContactFlexItem6 {
+        padding-right: 19px;
+    }
+
+    .blankArea {
+        height: 10px;
+        width: 30px;
+        background-color: white;
+    }
+}
+
+/* -------------------------------------------------------- DONE WORKING ---------------------------------------------------------------
+CSS rules for:
+- Smartphone (portrait and landscape).
+---------------------------------------------------------------------------------------------------------------------------------------*/
+@media only screen and (max-width: 767px) {
+    body {
+        background-color: rgba(255,255,255,.4);
+    
+    }
+    
+        /*
+            Flex container for Rent section.
+        */
+        .RentContainer {
+            display: inline-block;
+            width: 1280px;
+            margin-left: 15px;
+        }
+        
+        /*
+            Land for rent big banner background and text.
+        */
+        .RentItem1 {
+            width: 100%;
+            height: auto;
+            /* background-color: rgba(154, 255, 176, 0.8); */
+            padding-right: 50px;
+            /* border-right: 5px solid rgb(0, 214, 46); */
+            margin-right: 0;
+        }
+    
+        .RentItem1 h1 {
+            margin: 5px;
+            padding: 5px;
+            font-family: 'Consolas', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-size: 7em;
+            color: white;
+            background-color: #934337;
+            text-align: center;  
+        }
+    
+        /*
+            Detail land specification.
+        */
+        .RentItem2 {
+            align-self: center;
+            height: auto;
+        
+            font-size: 1.1em;
+            line-height: 150%;
+            color: black;
+            padding-left: 40px;
+            margin-left: 15px;
+    
+            background-color: rgba(154, 255, 176, 0.5);
+        }
+    
+        .RentItem2 ul li {
+            list-style-type: disclosure-closed;
+            list-style-position: outside;
+        }
+    
+        .LandSpec {
+            padding: 20px;
+            font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-size: 5em;
+            line-height: 150%;
+            color: black;
+        }
+    
+        /*
+            Hide banner of information.
+        */
+    
+        .InformClickPhoto {
+            display: none;
+        }
+    
+        /*
+            Flex container gallery setting.
+        */
+        .GalleryContainer {
+            display: flex;
+            flex-direction: column;
+            
+            width: 1260px;
+            height: auto;
+        
+            transform: translateX(3%);
+            margin-top: 30px;
+            padding-top: 50px;
+            padding-bottom: 50px;
+        }
+    
+        /*
+            Setting to all text in all flexbox.
+        */
+        .GalleryContainer p {
+            text-align: center;
+            font-size: 5em;
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+            color: black;
+            
+            margin-top: 2px;
+            padding: 5px;
+            padding-bottom: 100px;
+        }
+    
+        /*
+            Setting for specific image item.
+        */
+        .ImgInFlex {
+            object-fit: cover;
+            width: 1260px;
+            height: 700px;
+    
+            border: 5px solid white;
+            border-radius: 10px;
+    
+        } 
+    
+        /*
+            Appearance of Contact flex container.
+        */
+        .ContactContainer {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            justify-content: center;
+            /* align-items: center; */
+        
+            width: 1260px;
+            transform: translateX(3%);
+        }
+    
+        /*
+            Appearance of all contact flex items.
+        */
+        .ContactAllFlexItem {
+            background-color: rgba(154, 255, 176, 0.5);
+            padding-top: 30px;
+        }
+    
+        .ContactFlexItem2 {
+            display: none;
+        }
+    
+        .ContactFlexItem1 p {
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            font-size: 6em;
+            color: rgb(10, 77, 2);
+            text-decoration: underline;
+            padding: 5px;
+            padding-left: 20px;
+            padding-bottom: 10px;
+        }
+    
+        /* Detail contact information. */
+        .ContactFlexItem3 {
+    
+            padding-top: 0;
+            padding-bottom: 20px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 4em;
+            line-height: 120px;
+            padding-left: 40px;
+        }
+    
+         /* Telegram and WhatsApp logo near the phone number. */
+         .ContactFlexItem3 img {
+            width: 64x;
+            height: 64px;
+        }
+    
+    
+        .ContactFlexItem5, .ContactFlexItem6 {
+            text-align: center;
+        }
+    
+        /* Button Share section, hide. */
+        .ContactFlexItem4 a {
+            display: none;
+        }
+    
+        /* Telegram and WhatsApp QR Code. */
+        .ContactFlexItem5 img, .ContactFlexItem6 img {
+            width: 800px;
+            height: auto;
+            border: 8px solid rgb(41,167,26);
+        }
+}

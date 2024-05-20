@@ -1,0 +1,108 @@
+/*
+    Style sheet for website for printing on paper.
+*/
+
+
+
+    /*
+	Style of flex container for the header image.
+    */
+    .BannerContainer {
+        /* 
+            Make the div display flex in order to arrange photo into the middle of 
+            the page.
+        */
+        display: block;
+        
+        /*
+            Set border of area image area.
+        */
+        height: 400px;
+        /* width: 10% !important; */
+        overflow: visible; /* Hide the content of image under an image area. */
+
+        transform: translateX(-10%);
+        transform: translateY(-25%); /* Move the photo up 25% to make it looks good. */
+    }
+
+    .BannerContainer img {
+        box-shadow: 8px 8px 12px rgba(0,0,0,.7);
+    }
+
+    /*
+        Flex container for Rent section.
+    */
+    .RentContainer {
+        display: flex !important;
+        flex-direction: column !important;
+        flex-wrap: wrap !important;
+        margin-top: 50px;
+
+        /* justify-content: center;
+        align-items: center; */
+
+    }
+
+    /*
+        All flexbox item within Rent container.
+    */
+    .RentContainerAllFlexBox {
+        /* margin-left: 5px;
+        margin-right: 5px; */
+        padding: 0;
+    }
+
+    /*
+        Land for rent big banner background and text.
+    */
+    .RentItem1 {
+        width: 90%;
+        height: auto;
+        align-self: center;
+    }
+
+    .RentItem1 h1 {
+        /* margin: 5px; */
+        /* margin-left: 0; */
+        
+        padding: 5px;
+        padding-left: 0;
+        font-family: 'Consolas', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-size: 48pt !important;
+        color: black !important;
+        background-color: white !important;
+        /* text-align: center; */
+        text-decoration: underline;
+        transform: translationX(-10%) !important;
+    }
+
+    /*
+        Detail land specification.
+    */
+    .RentItem2 {
+        /* align-self: center; */
+        width: 100%;
+        height: auto;
+
+        
+        padding-left: 40px;
+        margin-left: 0;
+
+        background-color: none !important;
+    }
+
+    .RentItem2 ul li {
+        
+        list-style-image: url("../images/checkBox.gif");
+        
+    }
+
+    .LandSpec {
+        padding: 10px;
+        font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-size: 22pt !important;
+        line-height: 150%;
+        color: black;
+        border: 5px solid green;
+    }
+

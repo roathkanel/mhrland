@@ -1,0 +1,28 @@
+/*
+
+	Style master file. Link only this file to the HTML file and import all of 
+	other CSS files into this file.
+
+*/
+
+ /* Reset browser setting to the default setting before apply any style. */
+/* @import url("reset.css"); */
+
+/* Style when print or print preview. */
+/* @import url("print.css"); */
+
+/* Style for PC screen. */
+/* @import url("pc.css") (min-width: 1281px); */
+
+/* Style for tablet. */
+/* @import url("tablet.css") (min-width: 721px) and (max-width: 1280px);  */
+
+/* Style for tablet in portrait mode. */
+/* @import url("tablet-portrait.css") (min-width: 721px) and (max-width: 1280px) and (orientation: portrait); */
+
+/* Style for smart phone device. */
+/* @import url("smartphone.css") (max-width: 720px);  */
+
+/*Style for smartphone device with landscape orientation. */
+/* @import url("smartphone-landscape.css") (max-width: 807px) and (orientation: landscape); */ 
+
